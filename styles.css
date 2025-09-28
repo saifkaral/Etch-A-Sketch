@@ -1,14 +1,25 @@
 * {
   box-sizing: border-box;
 }
-
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 .main {
     display: flex;
     flex-wrap: wrap;
-    width: 480px;
+    width: 600px;
 }
 .boxes {
-    border: 1px solid black;
-    height: 30px;
-    width: 30px;
+  border: 1px solid black;
+}
+
+button {
+  margin-top: 5em;
 }
