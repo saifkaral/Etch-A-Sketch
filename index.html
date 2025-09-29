@@ -9,42 +9,31 @@
 <body>
     <div class="main"></div>
     <script>
-        let num = 256;
-        for (let i = 1; i <=num; i++) {
-        let box = document.createElement("div");
-        box.className = "boxes";
-        document.querySelector(".main").appendChild(box);
-    }
-    document.querySelectorAll(".boxes").forEach(box => {
-        box.style.width = `${Math.sqrt(600 ** 2 / num)}px`;
-        box.style.height = `${Math.sqrt(600 ** 2 / num)}px`;
-        box.onmouseover = function () {
-                this.style.backgroundColor = "black";
-        };
-    });
+        let num = 16;
 
-
+        function createGrid (number) {
+            for (let i = 1; i <=number**2; i++) {
+                let box = document.createElement("div");
+                box.className = "boxes";
+                document.querySelector(".main").appendChild(box);
+            }
+            document.querySelectorAll(".boxes").forEach(box => {
+                box.style.width = `${Math.sqrt(600 ** 2 / number**2)}px`;
+                box.style.height = `${Math.sqrt(600 ** 2 / number**2)}px`;
+                box.onmouseover = function () {
+                    this.style.backgroundColor = "black";
+                };
+            });
+        }
+        createGrid(num);
     </script>
     <button onclick="
     document.querySelector(`.main`).innerHTML = '';
     num = prompt(`what is the number of grid`);
-    while (num > 100 || num == undefined || num <= 0) {
+    while (num > 100 || isNaN(num) || num <= 0) {
         num = prompt(`Enter a number smaller than 100 and larger than 0`);
     }
-    for (let i = 1; i <=num**2; i++) {
-        let box = document.createElement('div');
-        box.className = 'boxes';
-        document.querySelector('.main').appendChild(box);
-    }
-
-    document.querySelectorAll('.boxes').forEach(box => {
-        box.style.width = `${Math.sqrt(600 ** 2 / num**2)}px`;
-        box.style.height = `${Math.sqrt(600 ** 2 / num**2)}px`;
-        box.onmouseover = function () {
-            this.style.backgroundColor = 'black';
-        };
-    });
-
+    createGrid(num);
     ">Change size</button>
 </body>
 </html>
